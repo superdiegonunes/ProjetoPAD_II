@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Cadastro de Usuário</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <h:outputStylesheet library="css" name="bootstrap.min.css" />
+        <h:outputStylesheet library="css" name="cadastro.css"/>
+    </h:head>
+    <h:body>
+        <div class="container">
+            <h:form class="form-horizontal">
+                <h2 class="form-head" style="text-align: center">Novo Usuário</h2>
+                <div class="form-group">
+                    <label for="nome" class="col-sm-3 control-label">Nome</label>
+                    <div class="col-sm-6">
+                        <h:inputText value="#{usuarioBackBean.usuario.nome}" 
+                                     id="nome" 
+                                     class="form-control"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="login" class="col-sm-3 control-label">Login</label>
+                    <div class="col-sm-6">
+                        <h:inputText value="#{usuarioBackBean.usuario.login}" 
+                                     id="login" 
+                                     class="form-control"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="senha" class="col-sm-3 control-label">Senha</label>
+                    <div class="col-sm-6">
+                        <h:inputSecret value="#{usuarioBackBean.usuario.senha}" 
+                                       id="senha" 
+                                       class="form-control"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="administrador" class="col-sm-3 control-label">Administrador</label>
+                    <div class="col-sm-6">
+                        <h:selectBooleanCheckbox value="#{usuarioBackBean.usuario.administrador}" 
+                                                 id="administrador" class="form-control"/>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <div class="col-sm-offset-3 col-sm-6">
+                        <h:commandButton value ="Voltar"
+                                         class="btn btn-primary pull-left"
+                                         action="#{usuarioBackBean.voltar()}" />
+                        <!-- colocar a action que cadastra o usuário no banco -->
+                        <h:commandButton value="Cadastrar"
+                                         class="btn btn-success pull-right"
+                                         action="#{usuarioBackBean.cadastrarUsuarioBanco()}"/>
+                    </div>
+                </div>
+
+            </h:form>
+        </div>
+    </h:body>
+</html>
