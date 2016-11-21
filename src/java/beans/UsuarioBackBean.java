@@ -27,7 +27,7 @@ public class UsuarioBackBean {
         Usuario usuario = uDAO.autenticarUsuario(login, senha);
         
         if (usuario != null) {
-            if (usuario.isAdministrador()) {
+            if (usuario.isAdministrador() == true){
                 return "/cadastroItem";
             }
             return "/carrinho";
