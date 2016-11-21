@@ -39,6 +39,7 @@ public class DAO<T> {
     manager.close();
     return instancia;
   }
+ 
 
   public void alterar(T t) {
     manager = JPAEntityManager.getEntityManager();
