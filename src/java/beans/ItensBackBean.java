@@ -34,7 +34,7 @@ public class ItensBackBean {
      * @return Action.
      */
     public String adicionar() {
-        
+
         /* Cadastrando o item. */
         iDAO.adicionar(item);
         message = "Item cadastrado com sucesso!";
@@ -56,13 +56,14 @@ public class ItensBackBean {
         return itens;
     }
 
-    public ItensBackBean() {}
+    public ItensBackBean() {
+    }
 
     public void setItens(List<Item> itens) {
         this.itens = itens;
     }
 
     public Collection<Item> getItens() {
-        return itens;
+        return this.itens;
     }
 }

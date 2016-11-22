@@ -5,12 +5,37 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-    <head>
-        <title>TODO supply a title</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    </head>
-    <body>
-        <div>TODO write content</div>
-    </body>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Carrinho</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+    </h:head>
+    <h:body>
+        <h:form>
+            <p:dataList value="#{itensBackBean.listaItens()}" var="i" type="ordered">
+                <p:column headerText="Id" 
+                          sortBy="#{i.id}" 
+                          filterBy="#{i.id}">
+                    <h:outputText value="#{i.id}" />
+                </p:column>
+
+                <p:column headerText="Descrição" 
+                          sortBy="#{i.descricao}" 
+                          filterBy="#{i.descricao}">
+                    <h:outputText value="#{i.descricao}" />
+                </p:column>
+
+                <p:column headerText="Preço" 
+                          sortBy="#{i.preco}" 
+                          filterBy="#{i.preco}">
+                    <h:outputText value="#{i.preco}" />
+                </p:column>
+
+            </p:dataList>
+        </h:form>
+    </h:body>
 </html>

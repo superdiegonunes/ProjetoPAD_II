@@ -15,23 +15,22 @@ public class UsuarioBackBean {
     private String message;
     private Usuario usuario = new Usuario();
 
-    public UsuarioBackBean() {
-    }
+    public UsuarioBackBean() {}
 
     public String logar() throws SQLException, ClassNotFoundException {
 
         /* Tentando logar. */
         String login = usuario.getLogin();
         String senha = usuario.getSenha();
-        Usuario usuario = uDAO.autenticarUsuario(login, senha);
+        Usuario u = uDAO.autenticarUsuario(login, senha);
 
-        if (usuario != null) {
-
-            if (usuario.isAdministrador()) {
-                return "/cadastroItem";
+        if (u != null) {
+            
+            if (u.isAdministrador()) {
+                return "/cadastroitem.xhtml";
             }
-
-            return "/carrinho";
+            
+            return "/carrinho.xhtml";
         }
 
         message = "Login/senha inválidos!";
@@ -67,16 +66,16 @@ public class UsuarioBackBean {
         uDAO.adicionar(usuario);
 
         /* Retornando para a página principal. */
-        return "/index";
+        return "/index.xhtml";
     }
 
     public String sair() {
         FacesContext.getCurrentInstance().getExternalContext().
                 invalidateSession();
-        return "/index";
+        return "/index.xhtml";
     }
 
     public String voltar() {
-        return "/index";
+        return "/index.xhtml";
     }
 }

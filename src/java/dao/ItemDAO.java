@@ -8,6 +8,7 @@ package dao;
 import entity.Item;
 import java.util.Collection;
 import javax.persistence.Query;
+import util.jpa.JPAEntityManager;
 
 /**
  *
@@ -20,6 +21,7 @@ public class ItemDAO extends DAO {
     }
     
     public Collection<Item> findAllItens() {
+        manager = JPAEntityManager.getEntityManager();
         Query query = manager.createQuery("Select e From Item e");
         return (Collection<Item>) query.getResultList();
     }
