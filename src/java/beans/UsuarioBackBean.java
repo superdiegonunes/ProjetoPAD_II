@@ -6,6 +6,7 @@ import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import entity.Usuario;
 import dao.UsuarioDAO;
+import javax.servlet.http.HttpSession;
 
 @ManagedBean(name = "usuarioBackBean")
 @SessionScoped
@@ -15,21 +16,28 @@ public class UsuarioBackBean {
     private String message;
     private Usuario usuario = new Usuario();
 
-    public UsuarioBackBean() {}
+    public UsuarioBackBean() {
+    }
 
     public String logar() throws SQLException, ClassNotFoundException {
 
         /* Tentando logar. */
         String login = usuario.getLogin();
         String senha = usuario.getSenha();
-        Usuario u = uDAO.autenticarUsuario(login, senha);
+        Usuario usuario = uDAO.autenticarUsuario(login, senha);
 
-        if (u != null) {
-            
-            if (u.isAdministrador()) {
+        if (usuario != null) {
+
+            /* Inserindo as informações do usuário na sessão. */
+            FacesContext fc = FacesContext.getCurrentInstance();
+            HttpSession session = (HttpSession) 
+                    fc.getExternalContext().getSession(true);
+            session.setAttribute("usuario", usuario);
+
+            if (usuario.isAdministrador()) {
                 return "/cadastroitem.xhtml";
             }
-            
+
             return "/carrinho.xhtml";
         }
 
