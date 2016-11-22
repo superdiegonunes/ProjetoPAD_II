@@ -16,21 +16,25 @@
                 <h:form class="form-horizontal">
                     <h2 class="form-head" style="text-align: center">#{msgs.newItem}</h2>
                     <div class="form-group">
-                        <label for="descricao" class="col-sm-3 control-label">#{msgs.description}</label>
-                        <div class="col-sm-6">
-                            <h:inputText value="#{itemBackBean.item.descricao}"
-                                         id="descricao"
-                                         class="form-control"/>
-                        </div>
-                        <label for="preco" class="col-sm-3 control-label">#{msgs.price}</label>
-                        <div class="col-sm-6">
-                            <h:inputText value="#{itemBackBean.item.preco}"
-                                         id="preco"
-                                         class="form-control">
-                                <f:convertNumber minFractionDigits="2"/>
-                            </h:inputText>
-                        </div>
+                        
+                        <h:panelGrid columns="2" cellpadding="5">
+                            <label for="descricao" class="col-sm-3 control-label">#{msgs.description}</label>
+                            <div class="col-sm-6">
+                                <h:inputText value="#{itemBackBean.item.descricao}"
+                                             id="descricao"
+                                             class="form-control"/>
+                            </div>
+                            <label for="preco" class="col-sm-3 control-label">#{msgs.price}</label>
+                            <div class="col-sm-6">
+                                <h:inputText value="#{itemBackBean.item.preco}"
+                                             id="preco"
+                                             class="form-control">
+                                    <f:convertNumber minFractionDigits="2"/>
+                                </h:inputText>
+                            </div>
 
+                        </h:panelGrid>
+                        
                         <div class="form-group">
                             <div class="col-sm-offset-3 col-sm-6">
                                 <h:commandButton value ="#{msgs.goBack}"

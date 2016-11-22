@@ -8,35 +8,30 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link href="css/bootstrap.min.css" rel="stylesheet"/>
     </h:head>
     <h:body>
-        <div class="container">
-            <h:form class="form-horizontal">
+        <h:form class="form-horizontal">
 
-                <h:panelGrid columns="3" cellpadding="5">
+            <h:panelGrid columns="3" cellpadding="5">
 
-                    <p:outputLabel for="login" value="Login:"/>
-                    <p:inputText value="#{usuarioBackBean.usuario.login}" id="login"/>
-                    <p:message for="login"/>
+                <p:outputLabel for="login" value="Login:"/>
+                <p:inputText value="#{usuarioBackBean.usuario.login}" id="login"/>
+                <p:message for="login"/>
 
-                    <p:outputLabel for="senha" value="Senha:"/>
-                    <p:password value="#{usuarioBackBean.usuario.senha}" id="senha"/>
-                    <p:message for="senha"/>
+                <p:outputLabel for="senha" value="Senha:"/>
+                <p:password value="#{usuarioBackBean.usuario.senha}" id="senha"/>
+                <p:message for="senha"/>
 
-                    <p:commandButton value="Entrar"
-                             action="#{usuarioBackBean.logar()}"/>
-                    <p:link value="Cadastra-se" outcome="cadastro" ></p:link>
+                <p:commandButton value="Entrar"
+                         action="#{usuarioBackBean.logar()}"/>
+                <p:link value="Cadastra-se" outcome="cadastro" ></p:link>
 
 
-                    <h:outputText value="#{usuarioBackBean.message}"
-                                  style="color: red"/>
+                <h:outputText value="#{usuarioBackBean.message}"
+                              style="color: red"/>
 
-                </h:panelGrid>
-            </h:form>
-        </div>
-        <script src="js/jquery-3.1.1.min.js" />
-        <script src="js/bootstrap.min.js" />
+            </h:panelGrid>
+        </h:form>
         
     </h:body>
 </html>
