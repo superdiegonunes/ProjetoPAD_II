@@ -12,24 +12,24 @@ import dao.UsuarioDAO;
 public class UsuarioBackBean {
     
     private static UsuarioDAO uDAO = new UsuarioDAO();
-    private static final String LOGIN = "ciro";
-    private static final String SENHA = "123";
     private String message;
     private Usuario usuario = new Usuario();
     
-    public UsuarioBackBean() {
-    }
+    public UsuarioBackBean() {}
     
     public String logar() throws SQLException, ClassNotFoundException {
+        
         /* Tentando logar. */
         String login = usuario.getLogin();
         String senha = usuario.getSenha();
         Usuario usuario = uDAO.autenticarUsuario(login, senha);
         
         if (usuario != null) {
+          
             if (usuario.isAdministrador()) {
                 return "/cadastroItem";
             }
+            
             return "/carrinho";
         }
         
